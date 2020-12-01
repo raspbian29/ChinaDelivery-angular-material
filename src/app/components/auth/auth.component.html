@@ -1,0 +1,21 @@
+<mat-card class="form">
+  <mat-card-content>
+    <h1>Login</h1>
+    <form (ngSubmit)="authenticate()">
+      <mat-form-field class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="example@mail.com" name="username" [(ngModel)]="email">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" name="password" placeholder="*****" [(ngModel)]="password">
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Login</button>
+      <div>
+        <small *ngFor="let error of errors" style="color: red">
+          * {{ error }}
+        </small>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

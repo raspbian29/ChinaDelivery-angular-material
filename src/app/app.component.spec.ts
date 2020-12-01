@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'dashbaord-template'`, () => {
+  it(`should have as title 'Dashboard`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('dashbaord-template');
+    expect(app.title).toEqual('Dashboard');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('dashbaord-template app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('dashboard-template app is running!');
   });
 });
