@@ -25,3 +25,32 @@
 .col:last-child {
   margin-right: 0;
 }
+
+.forms-account-settings {
+  height: 100vh;
+  background-image: url('https://roboticsandautomationnews.com/wp-content/uploads/2017/08/DHL-warehouse.jpg');
+  background-position: top; /* Center the image */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+
+
+/*
+.shipping-card{
+  display: inline-block;
+  width: 30%;
+  margin: 20px;
+  vertical-align: top;
+  cursor: pointer;}
+.user-card{
+  display: inline-block;
+  width: 30%;
+  margin: 20px;
+  vertical-align: top;
+  cursor: pointer;
+  float: left;
+}
+*/
+
+

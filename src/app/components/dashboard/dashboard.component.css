@@ -19,3 +19,11 @@
 .dashboard-card-content {
   text-align: center;
 }
+.login-wrapper {
+  height: 100vh;
+  background-image: url('~src/assets/img/5.jpg');
+  background-position: top; /* Center the image */
+  background-size: 100% 100%;
+  background-repeat: repeat;
+}
+

@@ -21,11 +21,11 @@ export class PackageRequestsComponent implements AfterViewInit, OnInit {
   constructor(private rs: ApiServiceGet) {
   }
 
-  displayedColumns = ['id', 'trackCode', 'itemType', 'shopName', 'createdDate', 'price', 'currency', 'amount', 'itemURL',
-                      'itemPhoto', 'itemInsurance', 'itemCheck', 'itemRepack', 'itemSplit' ];
+  displayedColumns = ['trackCode', 'itemType', 'createdDate', 'price', 'currency', 'amount', 'itemNotes',
+    'itemPhoto', 'itemInsurance', 'itemCheck', 'itemRepack', 'itemSplit', 'action'];
 
 
-  ngOnInit(){
+  ngOnInit(): void {
     this.findPackageRequests();
   }
 
@@ -33,9 +33,16 @@ export class PackageRequestsComponent implements AfterViewInit, OnInit {
     this.rs.getPackageRequests().subscribe(result => this.dataSource.data = result);
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
   }
- }
+
+  deletePackageRequest(id: number): void {
+    this.rs.deletePackageById(id).toPromise().then(res => {
+      window.location.reload();
+    });
+  }
+
+}

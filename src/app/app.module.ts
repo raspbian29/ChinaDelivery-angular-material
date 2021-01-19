@@ -35,6 +35,12 @@ import {AuthInterceptor} from './interceptors/AuthInterceptor';
 import { AccountSettingsComponent } from './components/account-settings/account-settings.component';
 import { PackageRequestsComponent } from './components/package-requests/package-requests.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { RegisterComponent } from './components/register/register.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {MyWarehouseComponent} from './components/my-warehouse/my-warehouse.component';
+import { PackageValidationComponent } from './components/package-validation/package-validation.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 
 const routes: Routes = [
@@ -72,7 +78,28 @@ const routes: Routes = [
     component: PackageRequestsComponent,
     canActivate: [AuthGuard]
   },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'my-warehouse',
+    component: MyWarehouseComponent
+  },
+  {
+    path: 'package-validation',
+    component: PackageValidationComponent
+  },
+  {
+    path: 'reset-password',
+    component: ResetPasswordComponent
+  },
+  {
+    path: 'change-password',
+    component: ChangePasswordComponent
+  },
 ];
+
 
 @NgModule({
   declarations: [
@@ -85,6 +112,11 @@ const routes: Routes = [
     DeclarationsComponent,
     AccountSettingsComponent,
     PackageRequestsComponent,
+    RegisterComponent,
+    MyWarehouseComponent,
+    PackageValidationComponent,
+    ResetPasswordComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     HttpClientModule,
@@ -111,6 +143,8 @@ const routes: Routes = [
     FormsModule,
     MatCheckboxModule,
     MatIconModule,
+    MatSelectModule,
+    FlexLayoutModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

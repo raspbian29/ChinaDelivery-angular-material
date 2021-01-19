@@ -2,3 +2,13 @@
   width: 100%;
 
 }
+.package-requests-table {
+  height: 100vh;
+  background-image: url('~src/assets/img/6.jpg');
+  background-position: top; /* Center the image */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.row {
+  overflow: initial;
+}

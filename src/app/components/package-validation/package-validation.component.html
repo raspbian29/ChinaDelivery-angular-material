@@ -1,0 +1,74 @@
+<div class="search-by-track" fxLayout="col" style="padding: 15px">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Search By Track Code</mat-card-title>
+    </mat-card-header>
+    <form class="example-form" (ngSubmit)="searchByTrackCode()">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Track Code" name="trackCode" [(ngModel)]="trackCode">
+        </mat-form-field>
+      </mat-card-content>
+      <button mat-stroked-button color="primary" class="btn-block" type="submit">Search</button>
+    </form>
+  </mat-card>
+</div>
+
+<div class="search-by-address" fxLayout="col" style="padding: 15px">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Search By Remote Address</mat-card-title>
+    </mat-card-header>
+    <form class="example-form" (ngSubmit)="searchByRemoteAddress()">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Remote address" name="remoteAddress" [(ngModel)]="remoteAddress">
+        </mat-form-field>
+      </mat-card-content>
+      <button mat-stroked-button color="primary" class="btn-block" type="submit">Search</button>
+    </form>
+  </mat-card>
+</div>
+
+<div class="package-request-card" fxLayout="row" style="padding: 15px">
+  <mat-card class="example-card" *ngIf="user.email">
+    <mat-card-title *ngIf="user.fName"> {{'User : ' + user?.fName + ' ' + user?.lName }}</mat-card-title>
+    <mat-card-subtitle *ngIf="user.email" style="color: #6e82db">{{'Email: ' + user?.email}}</mat-card-subtitle>
+    <form class="example-form" (ngSubmit)="sendEmailNotification(user, trackCode)">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Input Track Code" name="trackCode" [(ngModel)]="trackCode">
+        </mat-form-field>
+      </mat-card-content>
+      <button mat-stroked-button color="primary" class="btn-block" type="submit">Send Email notification</button>
+    </form>
+
+  </mat-card>
+</div>
+
+<div class="package-request-card" fxLayout="row" style="padding: 15px">
+  <mat-card class="example-card" *ngIf="packageRequest.user">
+    <mat-card-title
+      *ngIf="packageRequest.user"> {{'User : ' + packageRequest?.user?.fName + ' ' + packageRequest?.user?.lName }}</mat-card-title>
+    <mat-card-subtitle *ngIf="packageRequest.user"
+                       style="color: #6e82db">{{'Item Type: ' + packageRequest?.itemType}}</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="packageRequest.user">{{'Amount: ' + packageRequest?.amount}}</mat-card-subtitle>
+    <mat-card-subtitle
+      *ngIf="packageRequest.user">{{'Package price: ' + (packageRequest?.amount * packageRequest?.price) + ' ' + packageRequest?.currency}}</mat-card-subtitle>
+    <mat-card-subtitle
+      *ngIf="packageRequest.user">{{'Package per item: ' + (packageRequest?.price) + ' ' + packageRequest?.currency}}</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="packageRequest.itemPhoto">{{'Photo: Yes'}}</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="packageRequest.itemRepack">{{'Repack item'}}</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="packageRequest.itemSplit">{{'Split package'}}</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="packageRequest.itemCheck">{{'Check package'}}</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="packageRequest.user">{{'Notes: ' + packageRequest?.itemNotes}}</mat-card-subtitle>
+  </mat-card>
+</div>
+
+
+{{packageRequest| json}}
+{{user| json}}
+
+
+
+

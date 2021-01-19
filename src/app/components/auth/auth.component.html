@@ -1,21 +1,30 @@
-<mat-card class="form">
-  <mat-card-content>
-    <h1>Login</h1>
-    <form (ngSubmit)="authenticate()">
-      <mat-form-field class="full-width">
-        <mat-label>Email</mat-label>
-        <input matInput placeholder="example@mail.com" name="username" [(ngModel)]="email">
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <mat-label>Password</mat-label>
-        <input matInput type="password" name="password" placeholder="*****" [(ngModel)]="password">
-      </mat-form-field>
-      <button mat-raised-button color="primary" type="submit">Login</button>
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Log in</mat-card-title>
+    </mat-card-header>
+
+    <form class="example-form"  (ngSubmit)="authenticate()">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Email" name="email" [(ngModel)]="email">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput type="password" name="password" placeholder="Password" [(ngModel)]="password">
+        </mat-form-field>
+      </mat-card-content>
+      <button mat-stroked-button color="primary" class="btn-block" type="submit">Log in</button>
       <div>
         <small *ngFor="let error of errors" style="color: red">
           * {{ error }}
         </small>
       </div>
+      <p class="message">Not registered? <a href="/register">Create an account</a></p>
+      <p class="message">Forgot password? <a href="/reset-password">Restore password</a></p>
     </form>
-  </mat-card-content>
-</mat-card>
+  </mat-card>
+
+</div>
+

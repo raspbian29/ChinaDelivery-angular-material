@@ -1,1 +1,93 @@
-<p>declarations works!</p>
+<div class="declaration-form" style="padding: 15px">
+
+  <form [formGroup]="packageRequest" novalidate (ngSubmit)="onSubmit()">
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <mat-card-title>Package Declaration</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-select placeholder="Item Type" formControlName="itemType">
+                <mat-option *ngFor="let itemType of itemTypes" [value]="itemType.abbreviation">
+                  {{ itemType.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="packageRequest.controls['itemType'].hasError('required')">
+                Item Type is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Amount" formControlName="amount" type="number">
+              <mat-error *ngIf="packageRequest.controls['amount'].hasError('required')">
+                amount is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Price" formControlName="price" type="number"/>
+              <mat-error *ngIf="packageRequest.controls['price'].hasError('required')">
+                Price is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-select placeholder="Options" multiple formControlName="options">
+                <mat-option *ngFor="let option of optionTypes" [value]="option.key">
+                  {{ option.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-select placeholder="Currency" formControlName="currency">
+                <mat-option *ngFor="let currency of currencyTypes" [value]="currency.abbreviation">
+                  {{ currency.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="packageRequest.controls['itemType'].hasError('required')">
+                Currency is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Track Number" formControlName="trackCode">
+              <mat-error *ngIf="packageRequest.controls['trackCode'].hasError('required')">
+                track number is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row" *ngIf="!hasUnitNumber">
+          <div class="col">
+            <button mat-button type="button" (click)="hasUnitNumber = !hasUnitNumber">
+              + Add notes
+            </button>
+          </div>
+        </div>
+        <div class="row" *ngIf="hasUnitNumber">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <textarea matInput placeholder="Item Notes" formControlName="itemNotes"></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
+

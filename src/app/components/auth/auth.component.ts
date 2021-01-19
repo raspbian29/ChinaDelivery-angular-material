@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../services/auth/auth.service';
+import {Router} from '@angular/router';
+import {BehaviorSubject} from 'rxjs';
+import {User} from '../../models/User';
 
 @Component({
   selector: 'app-auth',
@@ -9,8 +12,9 @@ import {AuthService} from '../../services/auth/auth.service';
 export class AuthComponent implements OnInit {
   public email: string;
   public password: string;
-  public errors: string[] = [];
-  constructor(private authService: AuthService) { }
+  public errors;
+
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -19,6 +23,9 @@ export class AuthComponent implements OnInit {
     this.errors = [];
     this.authService.authenticate(this.email, this.password).catch((err) => {
       this.errors.push('' + err);
+    });
+    this.authService.userBehavior.subscribe(user => {
+      this.router.navigate(['/']);
     });
   }
 }

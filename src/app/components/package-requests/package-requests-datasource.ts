@@ -25,7 +25,7 @@ export class PackageRequestsDataSource extends DataSource<PackageRequest> {
     // stream for the data-table to consume.
     const dataMutations = [
       observableOf(this.data),
-      this.paginator.page,
+      this.paginator?.page,
       this.sort.sortChange
     ];
 
@@ -46,7 +46,7 @@ export class PackageRequestsDataSource extends DataSource<PackageRequest> {
    * this would be replaced by requesting the appropriate data from the server.
    */
   private getPagedData(data: PackageRequest[]) {
-    const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
+    const startIndex = this.paginator?.pageIndex * this.paginator?.pageSize;
     return data.splice(startIndex, this.paginator.pageSize);
   }
 
