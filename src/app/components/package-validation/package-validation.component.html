@@ -62,12 +62,41 @@
     <mat-card-subtitle *ngIf="packageRequest.itemSplit">{{'Split package'}}</mat-card-subtitle>
     <mat-card-subtitle *ngIf="packageRequest.itemCheck">{{'Check package'}}</mat-card-subtitle>
     <mat-card-subtitle *ngIf="packageRequest.user">{{'Notes: ' + packageRequest?.itemNotes}}</mat-card-subtitle>
+
+
+    <div class="container row" *ngIf="packageRequest.user">
+      <div class="col-md-12">
+        <h1>Upload Image</h1>
+      </div>
+    </div>
+    <div class="container row">
+      <div class="col-md-6">
+        <input type="file" (change)="onFileChanged($event)">
+      </div>
+      <div class="col-md-6">
+        <input type="button" (click)="onUpload()" value="upload">
+      </div>
+    </div>
+    <hr />
+    <div class="container row">
+      <div class="col-md-12">
+        <div *ngIf=message>{{message}}</div>
+      </div>
+    </div>
+
+
+    <div class="container row">
+      <div class="col-md-12">
+        <div *ngIf=retrievedImage>
+          <img [src]="retrievedImage">
+        </div>
+      </div>
+    </div>
+
+
   </mat-card>
 </div>
 
-
-{{packageRequest| json}}
-{{user| json}}
 
 
 

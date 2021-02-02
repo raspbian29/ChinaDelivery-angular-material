@@ -20,6 +20,9 @@ export class PackageValidationComponent {
   trackCode: string;
   remoteAddress: string;
   email: string;
+  message: any;
+  imageName: any;
+  retrievedImage: any;
 
 
   searchByTrackCode() {
@@ -32,6 +35,14 @@ export class PackageValidationComponent {
 
   sendEmailNotification(user: User, trackCode: string) {
     this.rs.sendEmailNotification(user.id, trackCode).toPromise().then(res => console.log(res));
+
+  }
+
+  onFileChanged($event: Event) {
+
+  }
+
+  onUpload() {
 
   }
 }
