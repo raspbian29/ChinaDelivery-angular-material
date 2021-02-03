@@ -139,7 +139,7 @@ const routes: Routes = [
     MatSelectModule,
     MatRadioModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
     FormsModule,
     MatCheckboxModule,
     MatIconModule,
