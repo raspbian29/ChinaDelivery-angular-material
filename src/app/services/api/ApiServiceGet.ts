@@ -10,19 +10,19 @@ export class ApiServiceGet {
   constructor(private http: HttpClient) {
   }
 
-  userListUrl = 'http://localhost:8443/rest/user/list';
-  userInfoUrl = 'http://localhost:8443/rest/user/userInfo';
-  packageRequestUrl = 'http://localhost:8443/rest/package/getAllRequests';
-  historyRequestsUrl = 'http://localhost:8443/rest/package/getRequestHistory';
-  myWarehouseRequestUrl = 'http://localhost:8443/rest/package/myWarehouse';
-  deletePackageRequestByIdUrl = 'http://localhost:8443/rest/package/deletePackageRequest';
-  restorePasswordUrl = 'http://localhost:8443/sign-in/resetPassword';
-  changePasswordUrl = 'http://localhost:8443/sign-in/changePassword';
+  userListUrl = '/rest/user/list';
+  userInfoUrl = '/rest/user/userInfo';
+  packageRequestUrl = '/rest/package/getAllRequests';
+  historyRequestsUrl = '/rest/package/getRequestHistory';
+  myWarehouseRequestUrl = '/rest/package/myWarehouse';
+  deletePackageRequestByIdUrl = '/rest/package/deletePackageRequest';
+  restorePasswordUrl = '/sign-in/resetPassword';
+  changePasswordUrl = '/sign-in/changePassword';
 
 
-  searchByTrackCodeUrl = 'http://localhost:8443/rest/operator/findByTrackCode';
-  searchByRemoteAddressUrl = 'http://localhost:8443/rest/operator/findByRemoteAddress';
-  sendEmailUrl = 'http://localhost:8443/rest/operator/sendEmailNotification';
+  searchByTrackCodeUrl = '/rest/operator/findByTrackCode';
+  searchByRemoteAddressUrl = '/rest/operator/findByRemoteAddress';
+  sendEmailUrl = '/rest/operator/sendEmailNotification';
 
 
   // tslint:disable-next-line:typedef
