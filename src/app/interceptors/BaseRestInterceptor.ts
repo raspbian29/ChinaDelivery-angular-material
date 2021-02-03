@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 import {Injectable} from '@angular/core';
 import {AuthService} from '../services/auth/auth.service';
 
-export const BASE_REST_URL = 'https://delivery-spring.herokuapp.com/';
+export const BASE_REST_URL = 'http://localhost:8443';
 
 
 @Injectable()
